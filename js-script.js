@@ -12,7 +12,7 @@ function makeGrid(size){
             const cell = document.createElement('td');
             cell.classList.add('cell');
             cell.id = "cell" + i;
-            cell.textContent = `cell ${i+1}`;
+            // cell.textContent = `cell ${i+1}`;
             row.appendChild(cell);
         }
     } 
