@@ -1,0 +1,18 @@
+.container{
+    border: 1px solid blue;
+    height: 575px;
+    width: 575px;
+    display: inline-grid;
+}
+
+
+.row{
+    border: 1px solid red;
+    color: black;
+    display: flex;
+}
+
+.cell{
+    border: 1px solid black;
+    color:  black;
+}
