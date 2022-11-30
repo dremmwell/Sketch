@@ -1,18 +1,33 @@
+/* div{
+    border: 1px solid red;
+} */
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container{
-    border: 1px solid blue;
-    height: 575px;
-    width: 575px;
+    height: 600px;
+    width: 600px;
     display: inline-grid;
+    border: 1px solid black;
 }
 
 .row{
-    border: 1px solid red;
-    color: black;
     display: flex;
 }
 
 .cell{
-    border: 1px solid black;
+    border: .1px solid lightgrey;
     color:  black;
+    flex: 1;
+}
+
+.black_background{
+    background-color: black;
+    border: .1px solid lightgrey;
+    color:  white;
     flex: 1;
 }
