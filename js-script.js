@@ -21,7 +21,7 @@ function makeGrid(size){
 }
 
 function changeToBlackBackground(div){
-    div.className = "black_bakground";
+    div.className = "black_background";
 }
 
 makeGrid(10);
@@ -29,9 +29,10 @@ makeGrid(10);
 const cells = document.querySelectorAll("#cell");
 cells.forEach((cell) => {
     cell.addEventListener("click", function () {
-        console.log("clicked on cell")
+        changeToBlackBackground(cell);
     }, false);
 }) ;
 
-
  
+
+   
