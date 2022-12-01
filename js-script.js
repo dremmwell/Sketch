@@ -1,5 +1,3 @@
-
-
 function makeGrid(size){
     const container = document.querySelector('#container');
     for (let i=0; i < size; i++){
@@ -20,8 +18,24 @@ function makeGrid(size){
     } 
 }
 
-function changeToBlackBackground(div){
-    div.className = "black_background";
+function setBlackColor(div){
+    div.style.backgroundColor = 'black';
+}
+
+const getRandomNumber = (maxNum) => {
+    return Math.floor(Math.random() * maxNum);
+};
+
+const getRandomColor = () => {
+    const h = getRandomNumber(360);
+    const s = getRandomNumber(100);
+    const l = getRandomNumber(100);
+    return `hsl(${h}deg, ${s}%, ${l}%)`;
+};
+
+const setRandomColor = (div) => {
+    const randomColor = getRandomColor();
+    div.style.backgroundColor = randomColor;
 }
 
 makeGrid(100);
@@ -29,21 +43,23 @@ makeGrid(100);
 const cells = document.querySelectorAll("#cell");
 cells.forEach((cell) => {
     cell.addEventListener("mousedown", function () {
-        changeToBlackBackground(cell);
+        setBlackColor(cell);
     }, false);
     cell.addEventListener("mouseover", function (e) {
-        if(e.buttons == 1) {
-            changeToBlackBackground(cell)
+        if(e.buttons == 1) { 
+            setBlackColor(cell)
         };
     }, false);
-}) ;
+}) ; 
 
-/* cells.forEach((cell) => {
+/* const cells = document.querySelectorAll("#cell");
+cells.forEach((cell) => {
+    cell.addEventListener("mousedown", function () {
+        setRandomColor(cell);
+    }, false);
     cell.addEventListener("mouseover", function (e) {
-        if(e.buttons == 1) {
-            changeToBlackBackground(cell)
+        if(e.buttons == 1) { 
+            setRandomColor(cell)
         };
     }, false);
-});  
- */ 
-  
+}) ;  */ 
