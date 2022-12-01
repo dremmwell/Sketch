@@ -21,7 +21,8 @@ function makeGrid(size){
 function paintBlack(){
     const cells = document.querySelectorAll("#cell");
     cells.forEach((cell) => {
-        cell.addEventListener("mousedown", function () {
+        cell.addEventListener("mousedown", function (e) {
+            e.preventDefault();
             setBlackColor(cell);
         }, false);
         cell.addEventListener("mouseover", function (e) {
@@ -55,7 +56,7 @@ function setBlackColor(div){
 
 function getRandomNumber (maxNum){
     return Math.floor(Math.random() * maxNum);
-};
+}
 
 function getRandomColor(){
     const h = getRandomNumber(360);
@@ -67,8 +68,24 @@ function getRandomColor(){
 function setRandomColor(div){
     const randomColor = getRandomColor();
     div.style.backgroundColor = randomColor;
+} 
+
+function setWhiteColor(){
+    const cells = document.querySelectorAll("#cell");
+    cells.forEach((cell) => {
+        cell.style.backgroundColor = 'white';
+        }); 
+};
+
+function resetGridColor() {
+    const btn = document.querySelector("#resetButton");
+    const cells = document.querySelectorAll("#cell");
+    btn.addEventListener("click", function () {
+        setWhiteColor(cell);
+    })
 }
 
 makeGrid(100);
-paintBlack(); 
-paintRandomColor();  
+paintRandomColor();   
+paintBlack();
+resetGridColor();   
