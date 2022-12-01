@@ -9,8 +9,20 @@
     <script src="js-script.js" defer></script>
 </head>
 <body>
+ <div class="buttons-container">
+    <input type="radio" name="color-choice" id="black-button" class="hidden radio-label">
+    <label for="black-button" class="button-label"><h1>Black</h1></label>
+
+    <input type="radio" name="color-choice" id="random-button" class="hidden radio-label">
+    <label for="random-button" class="button-label"><h1>Random Color</h1></label>
+
+    <input type="radio" name="color-choice" id="erase-button" class="hidden radio-label">
+    <label for="erase-button" class="button-label"><h1>Eraser</h1></label>
+
+    <button class="reset-button" id="reset-button"><h1>Reset</h1></button>
+</div>
+    
     <div class="container" id="container">
     </div>
-    <button class="resetButton" id="resetButton">Reset</button>
 </body>
-</html>   
+</html>  

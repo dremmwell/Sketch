@@ -78,7 +78,7 @@ function setWhiteColor(){
 };
 
 function resetGridColor() {
-    const btn = document.querySelector("#resetButton");
+    const btn = document.querySelector("#reset-button");
     const cells = document.querySelectorAll("#cell");
     btn.addEventListener("click", function () {
         setWhiteColor(cell);
