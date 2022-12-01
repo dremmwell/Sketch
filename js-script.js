@@ -18,48 +18,57 @@ function makeGrid(size){
     } 
 }
 
-function setBlackColor(div){
-    div.style.backgroundColor = 'black';
+function paintBlack(){
+    const cells = document.querySelectorAll("#cell");
+    cells.forEach((cell) => {
+        cell.addEventListener("mousedown", function () {
+            setBlackColor(cell);
+        }, false);
+        cell.addEventListener("mouseover", function (e) {
+            e.preventDefault();
+            if(e.buttons == 1) {
+            setBlackColor(cell);
+            };
+        }, false); 
+    }) ; 
 }
 
-const getRandomNumber = (maxNum) => {
+function paintRandomColor(){
+    const cells = document.querySelectorAll("#cell");
+    cells.forEach((cell) => {
+        cell.addEventListener("mousedown", function (e) {
+            e.preventDefault();
+            setRandomColor(cell);
+        }, false);
+        cell.addEventListener("mouseover", function (e) {
+            e.preventDefault();
+            if(e.buttons == 1) {
+            setRandomColor(cell);
+            };
+        }, false); 
+    }) ; 
+}
+
+function setBlackColor(div){
+    div.style.backgroundColor = 'black'; 
+}
+
+function getRandomNumber (maxNum){
     return Math.floor(Math.random() * maxNum);
 };
 
-const getRandomColor = () => {
+function getRandomColor(){
     const h = getRandomNumber(360);
     const s = getRandomNumber(100);
     const l = getRandomNumber(100);
     return `hsl(${h}deg, ${s}%, ${l}%)`;
 };
 
-const setRandomColor = (div) => {
+function setRandomColor(div){
     const randomColor = getRandomColor();
     div.style.backgroundColor = randomColor;
 }
 
 makeGrid(100);
-
-const cells = document.querySelectorAll("#cell");
-cells.forEach((cell) => {
-    cell.addEventListener("mousedown", function () {
-        setBlackColor(cell);
-    }, false);
-    cell.addEventListener("mouseover", function (e) {
-        if(e.buttons == 1) { 
-            setBlackColor(cell)
-        };
-    }, false);
-}) ; 
-
-/* const cells = document.querySelectorAll("#cell");
-cells.forEach((cell) => {
-    cell.addEventListener("mousedown", function () {
-        setRandomColor(cell);
-    }, false);
-    cell.addEventListener("mouseover", function (e) {
-        if(e.buttons == 1) { 
-            setRandomColor(cell)
-        };
-    }, false);
-}) ;  */ 
+paintBlack(); 
+paintRandomColor();  
