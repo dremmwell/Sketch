@@ -14,7 +14,7 @@ function makeGrid(size){
             const cell = document.createElement('div');
             cell.classList.add('cell');
             cell.id = "cell";
-            cell.textContent = `${j+1}-${j+1}`;
+            // cell.textContent = `${i+1}-${j+1}`;
             row.appendChild(cell);
         }
     } 
@@ -24,15 +24,26 @@ function changeToBlackBackground(div){
     div.className = "black_background";
 }
 
-makeGrid(10);
+makeGrid(100);
 
 const cells = document.querySelectorAll("#cell");
 cells.forEach((cell) => {
-    cell.addEventListener("click", function () {
+    cell.addEventListener("mousedown", function () {
         changeToBlackBackground(cell);
+    }, false);
+    cell.addEventListener("mouseover", function (e) {
+        if(e.buttons == 1) {
+            changeToBlackBackground(cell)
+        };
     }, false);
 }) ;
 
- 
-
-   
+/* cells.forEach((cell) => {
+    cell.addEventListener("mouseover", function (e) {
+        if(e.buttons == 1) {
+            changeToBlackBackground(cell)
+        };
+    }, false);
+});  
+ */ 
+  

@@ -17,6 +17,7 @@ body{
 
 .row{
     display: flex;
+    flex: 1;
 }
 
 .cell{
@@ -31,3 +32,4 @@ body{
     color:  white;
     flex: 1;
 }
+ 
