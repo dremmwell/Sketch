@@ -12,6 +12,10 @@ function getRandomColor(){
 
 ////////////////// Make Grid ////////////////////////////////
 
+let size = 100;
+
+
+
 function makeGrid(size){
     const container = document.querySelector('.container');
     for (let i=0; i < size; i++){
@@ -32,16 +36,20 @@ function makeGrid(size){
     } 
 }
 
-//////////////////// Set Colors /////////////////////////
+const gridSliderText = document.querySelector('.grid-slider-text');
+gridSliderText.textContent = `Grid Size : ${size} x ${size} px`;
+makeGrid(size);
 
+//////////////////// Set Colors /////////////////////////
+  
 function setBlackColor(div){
     div.style.backgroundColor = 'black'; 
-}
-
+}  
+ 
 function setRandomColor(div){
     const randomColor = getRandomColor();
     div.style.backgroundColor = randomColor;
-} 
+}  
 
 function setWhiteColor(div) {
     div.style.backgroundColor = 'white';
@@ -124,8 +132,6 @@ function gridOff(){
 }; 
 ///////////////////////// Events //////////////////////////////////
 
-makeGrid(100);
-
 const black_button = document.querySelector("#black-button");
 black_button.addEventListener("click", function () {
     paintBlack();
@@ -155,6 +161,6 @@ grid_button.addEventListener("click", function () {
         gridOff();
     }
 });
+
+
           
- 
-         
