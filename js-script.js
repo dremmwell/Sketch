@@ -155,7 +155,8 @@ function gridOff(){
         cell.style.border = 'none';
         }); 
 }; 
-///////////////////////// Events //////////////////////////////////
+
+///////////////////////// Click Events //////////////////////////////////
 
 const black_button = document.querySelector("#black-button");
 black_button.addEventListener("click", function () {

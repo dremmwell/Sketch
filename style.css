@@ -120,8 +120,9 @@ h1 {
 }        
 
 .grid-slider-text{
-    color: white; 
+    color: white;  
     text-align: center;   
-    padding-top: 10px;
+    padding-top: 100px;
     padding-bottom: 10px;
 }
+  
