@@ -13,7 +13,7 @@ function getRandomColor(){
 ////////////////// Make Grid ////////////////////////////////
 
 function makeGrid(size){
-    const container = document.querySelector('#container');
+    const container = document.querySelector('.container');
     for (let i=0; i < size; i++){
 
         const row = document.createElement('div');
@@ -51,7 +51,7 @@ function setWhiteColor(div) {
 
 function paintBlack(){
     if(black_button.checked){
-        const cells = document.querySelectorAll("#cell");
+        const cells = document.querySelectorAll(".cell");
         cells.forEach((cell) => {
             cell.addEventListener("mousedown", function (e) {
                 e.preventDefault();
@@ -71,7 +71,7 @@ function paintBlack(){
 }
 
 function paintRandomColor(){
-    const cells = document.querySelectorAll("#cell");
+    const cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {
         cell.addEventListener("mousedown", function (e) {
             e.preventDefault();
@@ -87,7 +87,7 @@ function paintRandomColor(){
 }
 
 function paintWhite(){
-    const cells = document.querySelectorAll("#cell");
+    const cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {
         cell.addEventListener("mousedown", function (e) {
             e.preventDefault();
@@ -103,7 +103,7 @@ function paintWhite(){
 }
 
 function paintGridWhite(){
-    const cells = document.querySelectorAll("#cell");
+    const cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {
         cell.style.backgroundColor = 'white';
         }); 
@@ -132,4 +132,4 @@ const reset_button = document.querySelector("#reset-button");
 reset_button.addEventListener("click", function () {
     paintGridWhite();
 });           
-         
+          
