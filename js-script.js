@@ -15,7 +15,7 @@ function getRandomColor(){
 let defaultSize = 50;
 makeGrid(defaultSize);
 var gridSliderText = document.querySelector('.grid-slider-text');
-gridSliderText.textContent = `Grid Size : ${defaultSize} x ${defaultSize} px`;
+gridSliderText.textContent = `New Page : ${defaultSize} x ${defaultSize} px`;
 
 function makeGrid(size){
     const container = document.querySelector('.container');
@@ -24,7 +24,7 @@ function makeGrid(size){
         row.classList.add('row');
         row.id = "row";
         // row.textContent = `row ${i+1}`;
-        container.appendChild(row); 
+        container.appendChild(row);   
 
         for(let j=0; j< size; j++){
             const cell = document.createElement('div');
@@ -48,7 +48,7 @@ function deleteGrid() {
 
 var gridSlider = document.querySelector("#grid-slider");
 gridSlider.onchange = function() {
-    gridSliderText.textContent = `Grid Size : ${this.value} x ${this.value} px`;
+    gridSliderText.textContent = `New Page : ${this.value} x ${this.value} px`;
     deleteGrid();
     makeGrid(this.value);
     resetRadioButtons();
