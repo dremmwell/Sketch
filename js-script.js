@@ -10,10 +10,12 @@ function getRandomColor(){
     return `hsl(${h}deg, ${s}%, ${l}%)`;
 };
 
-///////////////////////// Grid ////////////////////////////////
+///////////////////////// Handle Grid ////////////////////////////////
 
 let defaultSize = 50;
 makeGrid(defaultSize);
+var gridSliderText = document.querySelector('.grid-slider-text');
+gridSliderText.textContent = `Grid Size : ${defaultSize} x ${defaultSize} px`;
 
 function makeGrid(size){
     const container = document.querySelector('.container');
@@ -40,25 +42,18 @@ function deleteGrid() {
         rows.forEach((row) => {
             container.removeChild(row);
        }); 
-}   
+}    
 
-function updateGrid(size){
-    var gridSlider = document.querySelector("#grid-slider");
-    var gridSliderText = document.querySelector('.grid-slider-text');
-    gridSliderText.textContent = `Grid Size : ${defaultSize} x ${defaultSize} px`;
-
-    gridSlider.oninput = function() {
-        gridSliderText.textContent = `Grid Size : ${this.value} x ${this.value} px`;
-        deleteGrid();
-        makeGrid(this.value);
-    }
-}
-
-const resetPageButton = document.querySelector("#resetPage-button");
-resetPageButton.addEventListener("click", function () {
+var gridSlider = document.querySelector("#grid-slider");
+gridSlider.onchange = function() {
+    gridSliderText.textContent = `Grid Size : ${this.value} x ${this.value} px`;
     deleteGrid();
-});      
+    makeGrid(this.value);
+    resetButtonsState();
+}    
 
+/////////////////// Reset Buttons ////////////////////////
+  
 //////////////////// Set Colors /////////////////////////
   
 function setBlackColor(div){

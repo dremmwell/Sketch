@@ -25,10 +25,10 @@ body{
 
 .cell{  
     background-color: white;
-    border: none;
+    border: thin solid lightgrey;
     color:  black;
     flex: 1;
-}  
+}   
 
 .buttons-container{
     display: flex;
