@@ -10,28 +10,19 @@ function getRandomColor(){
     return `hsl(${h}deg, ${s}%, ${l}%)`;
 };
 
-////////////////// Make Grid ////////////////////////////////
+///////////////////////// Grid ////////////////////////////////
 
 let defaultSize = 50;
-
-var gridSlider = document.querySelector("#grid-slider");
-var gridSliderText = document.querySelector('.grid-slider-text');
-gridSliderText.textContent = `Grid Size : ${defaultSize} x ${defaultSize} px`;
-
-gridSlider.oninput = function() {
-    gridSliderText.textContent = `Grid Size : ${this.value} x ${this.value} px`;
-    makeGrid(this.value)
-}  
+makeGrid(defaultSize);
 
 function makeGrid(size){
     const container = document.querySelector('.container');
     for (let i=0; i < size; i++){
-
         const row = document.createElement('div');  
         row.classList.add('row');
         row.id = "row";
         // row.textContent = `row ${i+1}`;
-        container.appendChild(row);
+        container.appendChild(row); 
 
         for(let j=0; j< size; j++){
             const cell = document.createElement('div');
@@ -39,10 +30,35 @@ function makeGrid(size){
             cell.id = "cell";
             // cell.textContent = `${i+1}-${j+1}`;
             row.appendChild(cell);  
-        }
+        }  
     } 
-}  
- 
+}
+
+function deleteGrid() {
+    const container = document.querySelector(".container");
+    const rows = document.querySelectorAll(".row");
+        rows.forEach((row) => {
+            container.removeChild(row);
+       }); 
+}   
+
+function updateGrid(size){
+    var gridSlider = document.querySelector("#grid-slider");
+    var gridSliderText = document.querySelector('.grid-slider-text');
+    gridSliderText.textContent = `Grid Size : ${defaultSize} x ${defaultSize} px`;
+
+    gridSlider.oninput = function() {
+        gridSliderText.textContent = `Grid Size : ${this.value} x ${this.value} px`;
+        deleteGrid();
+        makeGrid(this.value);
+    }
+}
+
+const resetPageButton = document.querySelector("#resetPage-button");
+resetPageButton.addEventListener("click", function () {
+    deleteGrid();
+});      
+
 //////////////////// Set Colors /////////////////////////
   
 function setBlackColor(div){
@@ -50,7 +66,7 @@ function setBlackColor(div){
 }  
  
 function setRandomColor(div){
-    const randomColor = getRandomColor();
+    const randomColor = getRandomColor();  
     div.style.backgroundColor = randomColor;
 }  
 
@@ -106,7 +122,7 @@ function paintWhite(){
         }, false);
         cell.addEventListener("mouseover", function (e) {
             e.preventDefault();
-            if(e.buttons == 1) {
+            if(e.buttons == 1) { 
             setWhiteColor(cell);
             };
         }, false); 
