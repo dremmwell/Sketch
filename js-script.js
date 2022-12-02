@@ -109,6 +109,19 @@ function paintGridWhite(){
         }); 
 };
 
+function gridOn(){
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+        cell.style.border = 'thin solid lightgrey';
+        }); 
+};  
+  
+function gridOff(){
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+        cell.style.border = 'none';
+        }); 
+}; 
 ///////////////////////// Events //////////////////////////////////
 
 makeGrid(100);
@@ -131,5 +144,17 @@ erase_button.addEventListener("click", function () {
 const reset_button = document.querySelector("#reset-button");
 reset_button.addEventListener("click", function () {
     paintGridWhite();
-});           
+});     
+
+const grid_button = document.querySelector("#grid-button");
+grid_button.addEventListener("click", function () {
+    if(grid_button.checked){
+        gridOn();
+    }
+    else{
+        gridOff();
+    }
+});
           
+ 
+         
