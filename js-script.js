@@ -34,6 +34,8 @@ function makeGrid(size){
             row.appendChild(cell);  
         }  
     } 
+    const grid_button = document.querySelector("#grid-button");
+    grid_button.checked = true;
 }
 
 function deleteGrid() {
@@ -49,20 +51,29 @@ gridSlider.onchange = function() {
     gridSliderText.textContent = `Grid Size : ${this.value} x ${this.value} px`;
     deleteGrid();
     makeGrid(this.value);
-    resetButtonsState();
+    resetRadioButtons();
 }    
 
-/////////////////// Reset Buttons ////////////////////////
+/////////////////// Reset Buttons ///////////////////////
+
+function resetRadioButtons(){
+    const black_button = document.querySelector("#black-button");
+    black_button.checked = false;
+    const random_button = document.querySelector("#random-button");
+    random_button.checked = false;
+    const erase_button = document.querySelector("#erase-button");
+    erase_button.checked = false;
+}
   
 //////////////////// Set Colors /////////////////////////
-  
+     
 function setBlackColor(div){
     div.style.backgroundColor = 'black'; 
-}  
+}     
  
 function setRandomColor(div){
     const randomColor = getRandomColor();  
-    div.style.backgroundColor = randomColor;
+    div.style.backgroundColor = randomColor;  
 }  
 
 function setWhiteColor(div) {
