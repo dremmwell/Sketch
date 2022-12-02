@@ -24,6 +24,7 @@ body{
 
 .cell{
     background-color: white;
+    border: none;
     color:  black;
     flex: 1;
 }  
@@ -43,7 +44,7 @@ body{
   cursor: pointer;
   color: black;
   border-radius: 0.25em; 
-  background: white; 
+  background: white;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 -3px 0 rgba(0,0,0,0.22);
   transition: 0.3s;
   border: none;
@@ -53,7 +54,7 @@ body{
 
 .reset-button:active {  
   background-color: black;  
-  transform: scale(.96);
+  transform: scale(.96);   
 }    
    
 .button-label {  
@@ -86,16 +87,16 @@ h1 {
     color: white;
 }
   
-#erase-button:checked + .button-label {
+#erase-button:checked + .button-label { 
     background: #A91B0D;
     color: white;
 }
 
-#grid-button:checked + .button-label {
+#grid-button:checked + .button-label { 
     background: grey;
     color: black;
-}  
+}
     
-.hidden {  
+.hidden {   
     display: none;
 }        
