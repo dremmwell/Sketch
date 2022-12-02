@@ -1,3 +1,17 @@
+
+function getRandomNumber (maxNum){
+    return Math.floor(Math.random() * maxNum);
+}
+
+function getRandomColor(){
+    const h = getRandomNumber(360);
+    const s = getRandomNumber(100);
+    const l = getRandomNumber(100);
+    return `hsl(${h}deg, ${s}%, ${l}%)`;
+};
+
+////////////////// Make Grid ////////////////////////////////
+
 function makeGrid(size){
     const container = document.querySelector('#container');
     for (let i=0; i < size; i++){
@@ -18,20 +32,42 @@ function makeGrid(size){
     } 
 }
 
+//////////////////// Set Colors /////////////////////////
+
+function setBlackColor(div){
+    div.style.backgroundColor = 'black'; 
+}
+
+function setRandomColor(div){
+    const randomColor = getRandomColor();
+    div.style.backgroundColor = randomColor;
+} 
+
+function setWhiteColor(div) {
+    div.style.backgroundColor = 'white';
+}
+
+///////////////////// Paint Functions ////////////////////////
+
 function paintBlack(){
-    const cells = document.querySelectorAll("#cell");
-    cells.forEach((cell) => {
-        cell.addEventListener("mousedown", function (e) {
-            e.preventDefault();
-            setBlackColor(cell);
-        }, false);
-        cell.addEventListener("mouseover", function (e) {
-            e.preventDefault();
-            if(e.buttons == 1) {
-            setBlackColor(cell);
-            };
-        }, false); 
-    }) ; 
+    if(black_button.checked){
+        const cells = document.querySelectorAll("#cell");
+        cells.forEach((cell) => {
+            cell.addEventListener("mousedown", function (e) {
+                e.preventDefault();
+                setBlackColor(cell);
+            }, false);
+            cell.addEventListener("mouseover", function (e) {
+                e.preventDefault();
+                if(e.buttons == 1) {
+                setBlackColor(cell);
+                };
+            }, false); 
+        }) ; 
+    }
+    else{
+        return;
+    }
 }
 
 function paintRandomColor(){
@@ -50,42 +86,50 @@ function paintRandomColor(){
     }) ; 
 }
 
-function setBlackColor(div){
-    div.style.backgroundColor = 'black'; 
+function paintWhite(){
+    const cells = document.querySelectorAll("#cell");
+    cells.forEach((cell) => {
+        cell.addEventListener("mousedown", function (e) {
+            e.preventDefault();
+            setWhiteColor(cell);
+        }, false);
+        cell.addEventListener("mouseover", function (e) {
+            e.preventDefault();
+            if(e.buttons == 1) {
+            setWhiteColor(cell);
+            };
+        }, false); 
+    }) ;  
 }
 
-function getRandomNumber (maxNum){
-    return Math.floor(Math.random() * maxNum);
-}
-
-function getRandomColor(){
-    const h = getRandomNumber(360);
-    const s = getRandomNumber(100);
-    const l = getRandomNumber(100);
-    return `hsl(${h}deg, ${s}%, ${l}%)`;
-};
-
-function setRandomColor(div){
-    const randomColor = getRandomColor();
-    div.style.backgroundColor = randomColor;
-} 
-
-function setWhiteColor(){
+function paintGridWhite(){
     const cells = document.querySelectorAll("#cell");
     cells.forEach((cell) => {
         cell.style.backgroundColor = 'white';
         }); 
 };
 
-function resetGridColor() {
-    const btn = document.querySelector("#reset-button");
-    const cells = document.querySelectorAll("#cell");
-    btn.addEventListener("click", function () {
-        setWhiteColor(cell);
-    })
-}
+///////////////////////// Events //////////////////////////////////
 
 makeGrid(100);
-paintRandomColor();   
-paintBlack();
-resetGridColor();   
+
+const black_button = document.querySelector("#black-button");
+black_button.addEventListener("click", function () {
+    paintBlack();
+});
+
+const random_button = document.querySelector("#random-button");
+random_button.addEventListener("click", function () {
+    paintRandomColor();
+});
+
+const erase_button = document.querySelector("#erase-button");
+erase_button.addEventListener("click", function () {
+    paintWhite();
+});
+
+const reset_button = document.querySelector("#reset-button");
+reset_button.addEventListener("click", function () {
+    paintGridWhite();
+});           
+         

@@ -77,20 +77,20 @@ h1 {
 }
   
 #black-button:checked + .button-label {
-    background: green;
-    color: lightgrey;
+    background: black;
+    color: white;
 }
   
-#random-button:checked + .button-label {
-    background: red;
-    color: lightgray;
+#random-button:checked + .button-label { 
+    background: yellowgreen;
+    color: white;
 }
   
 #erase-button:checked + .button-label {
-    background: blue;
-    color: lightgrey;
+    background: #A91B0D;
+    color: white;
 }
     
-.hidden {
+.hidden {  
     display: none;
-}     
+}        
