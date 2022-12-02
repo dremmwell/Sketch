@@ -109,6 +109,13 @@ function paintGridWhite(){
         }); 
 };
 
+function gridOn(){
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+        cell.style.backgroundColor = 'red';
+        }); 
+};
+
 ///////////////////////// Events //////////////////////////////////
 
 makeGrid(100);
@@ -133,3 +140,4 @@ reset_button.addEventListener("click", function () {
     paintGridWhite();
 });           
           
+
