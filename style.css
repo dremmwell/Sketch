@@ -3,10 +3,14 @@
 } */
 
 body{
+    background-color: dimgrey;
+}
+
+.app-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: dimgrey;
+    background-color: dimgrey;  
     gap: 10px;
 }
 
@@ -19,7 +23,7 @@ body{
 
 .row{ 
     display: flex;
-    flex: 1;
+    flex: 1;  
 }
 
 .cell{
