@@ -12,15 +12,22 @@ function getRandomColor(){
 
 ////////////////// Make Grid ////////////////////////////////
 
-let size = 100;
+let defaultSize = 50;
 
+var gridSlider = document.querySelector("#grid-slider");
+var gridSliderText = document.querySelector('.grid-slider-text');
+gridSliderText.textContent = `Grid Size : ${defaultSize} x ${defaultSize} px`;
 
+gridSlider.oninput = function() {
+    gridSliderText.textContent = `Grid Size : ${this.value} x ${this.value} px`;
+    makeGrid(this.value)
+}  
 
 function makeGrid(size){
     const container = document.querySelector('.container');
     for (let i=0; i < size; i++){
 
-        const row = document.createElement('div');
+        const row = document.createElement('div');  
         row.classList.add('row');
         row.id = "row";
         // row.textContent = `row ${i+1}`;
@@ -31,15 +38,11 @@ function makeGrid(size){
             cell.classList.add('cell');
             cell.id = "cell";
             // cell.textContent = `${i+1}-${j+1}`;
-            row.appendChild(cell);
+            row.appendChild(cell);  
         }
     } 
-}
-
-const gridSliderText = document.querySelector('.grid-slider-text');
-gridSliderText.textContent = `Grid Size : ${size} x ${size} px`;
-makeGrid(size);
-
+}  
+ 
 //////////////////// Set Colors /////////////////////////
   
 function setBlackColor(div){
