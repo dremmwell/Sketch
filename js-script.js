@@ -138,6 +138,11 @@ erase_button.addEventListener("click", function () {
 const reset_button = document.querySelector("#reset-button");
 reset_button.addEventListener("click", function () {
     paintGridWhite();
-});           
+});     
+
+const grid_button = document.querySelector("#grid-button");
+grid_button.addEventListener("click", function () {
+    console.log(grid_button.checked);
+});   
           
 
