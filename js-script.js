@@ -29,7 +29,7 @@ function makeGrid(size){
         for(let j=0; j< size; j++){
             const cell = document.createElement('div');
             cell.classList.add('cell');
-            cell.id = "cell";
+            cell.id = 'cell-'+i+'+'+j+'';
             // cell.textContent = `${i+1}-${j+1}`;
             row.appendChild(cell);  
         }  
@@ -72,6 +72,9 @@ function setBlackColor(div){
 }     
  
 function setRandomColor(div){
+    const randomColor = getRandomColor(); 
+    div.style.backgroundColor = randomColor;
+} 
     const randomColor = getRandomColor();  
     div.style.backgroundColor = randomColor;  
 }  
