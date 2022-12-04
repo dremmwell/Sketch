@@ -74,10 +74,7 @@ function setBlackColor(div){
 function setRandomColor(div){
     const randomColor = getRandomColor(); 
     div.style.backgroundColor = randomColor;
-} 
-    const randomColor = getRandomColor();  
-    div.style.backgroundColor = randomColor;  
-}  
+}
 
 function setWhiteColor(div) {
     div.style.backgroundColor = 'white';
@@ -97,7 +94,7 @@ function paintBlack(){
                 e.preventDefault();
                 if(e.buttons == 1) {
                 setBlackColor(cell);
-                };
+                }; 
             }, false); 
         }) ; 
     }
